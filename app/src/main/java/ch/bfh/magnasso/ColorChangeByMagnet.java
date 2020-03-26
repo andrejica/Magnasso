@@ -34,7 +34,7 @@ public class ColorChangeByMagnet extends Activity implements SensorEventListener
         setContentView(R.layout.activity_color_change_by_magnet);
 
         //Layout to change the background from the main activity
-        layout = findViewById(R.id.Magnasso);
+        layout = findViewById(R.id.MagnassoRGB);
 
         // Get a reference to the SensorManager
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
