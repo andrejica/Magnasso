@@ -8,6 +8,8 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 
+import android.view.View;
+import android.widget.Button;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class ColorChangeByMagnet extends Activity implements SensorEventListener {
@@ -47,6 +49,18 @@ public class ColorChangeByMagnet extends Activity implements SensorEventListener
         if (null == magnetometer)
             finish();
 
+        changeToHome();
+    }
+
+    private void changeToHome(){
+        final Button homeButton = findViewById(R.id.back_home_rgb);
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                finish();
+            }
+        });
     }
 
     @Override

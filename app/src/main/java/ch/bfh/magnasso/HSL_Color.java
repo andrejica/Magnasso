@@ -7,6 +7,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import static androidx.core.graphics.ColorUtils.HSLToColor;
@@ -65,6 +67,19 @@ public class HSL_Color extends Activity implements SensorEventListener {
         if (magnetometer == null || grav == null)
             finish();
 
+        changeToHome();
+
+    }
+
+    private void changeToHome(){
+        final Button homeButton = findViewById(R.id.back_home_hsl);
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                finish();
+            }
+        });
     }
 
     @Override
@@ -101,6 +116,10 @@ public class HSL_Color extends Activity implements SensorEventListener {
 
             magnetic = new float[3];
             System.arraycopy(event.values, 0, magnetic, 0, 3);
+
+            magnetic[0] /= 100;
+            magnetic[1] /= 100;
+            magnetic[2] /= 100;
 //
 //            float[] R = new float[9];
 //            float[] I = new float[9];
